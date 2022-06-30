@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jlopezsa/university-management-back/issues"
   },
-  "homepage": "https://github.com/jlopezsa/university-management-back#readme"
+  "homepage": "https://github.com/jlopezsa/university-management-back#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
