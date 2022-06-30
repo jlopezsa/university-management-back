@@ -2,6 +2,7 @@ const {
   getAllStudents,
   createStudent,
   deleteStudent,
+  updateStudent,
 } = require('./students.services');
 
 async function handlerCreateStudent(req, res) {
@@ -31,8 +32,20 @@ async function handlerDeleteStudent(req, res) {
   res.status(202).json({ message: `Studen was deleted` });
 }
 
+async function handlerUpdateStudent(req, res) {
+  const newInfo = req.body;
+  const { id } = req.params;
+
+  const student = await updateStudent(id, newInfo);
+  if(!student){
+    res.status(500).json({ message: `Student can not be update` });
+  }
+  res.status(201).json(student);
+}
+
 module.exports = {
   handlerCreateStudent,
   handlerGetStudents,
   handlerDeleteStudent,
+  handlerUpdateStudent,
 };

@@ -22,8 +22,17 @@ async function deleteStudent(id) {
   return student;
 }
 
+async function updateStudent(id, newInfo) {
+  const updateInfo = await StudentsModel.findByIdAndUpdate(id, newInfo, { new: true });
+  if(!updateInfo) {
+    return null
+  }
+  return updateInfo;
+}
+
 module.exports = {
   createStudent,
   getAllStudents,
   deleteStudent,
+  updateStudent,
 }
