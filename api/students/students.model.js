@@ -4,6 +4,7 @@ const StudentsSchema = new mongoose.Schema({
   cedula: {
     type: String,
     unique: true,
+    required: [true, "Cedula is required"],
   },
   name: {
     type: String,
@@ -11,7 +12,8 @@ const StudentsSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    unique: true,
+    unique: false,
+    required: [true, "Email is required"],
   },
   phone: {
     type: String,

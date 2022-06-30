@@ -14,7 +14,16 @@ function getAllStudents() {
   return response;
 }
 
+async function deleteStudent(id) {
+  const student = await StudentsModel.findByIdAndDelete(id);
+  if (!student) {
+    return null;
+  }
+  return student;
+}
+
 module.exports = {
   createStudent,
   getAllStudents,
+  deleteStudent,
 }
