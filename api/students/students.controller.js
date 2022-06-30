@@ -47,11 +47,10 @@ async function handlerUpdateStudent(req, res) {
 async function handlerSearchStudents(req, res) {
   const filterCondition = req.query;
   try {
-    console.log('FLAG: ', filterCondition);
     const studentFiltered = await getStudentByName(filterCondition);
-    console.log('EXITO: ', studentFiltered);
+    res.status(201).json(studentFiltered);
   } catch (error) {
-    console.log('NO Query Param');
+    res.status(500).json(error.message);
   }
 }
 
