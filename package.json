@@ -1,0 +1,24 @@
+{
+  "name": "university-management-back",
+  "version": "1.0.0",
+  "description": "Back-end to make the tsgroup test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlopezsa/university-management-back.git"
+  },
+  "keywords": [
+    "back-end",
+    "tsgroup",
+    "test"
+  ],
+  "author": "Julian Jair López Salamanca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlopezsa/university-management-back/issues"
+  },
+  "homepage": "https://github.com/jlopezsa/university-management-back#readme"
+}
