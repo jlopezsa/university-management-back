@@ -14,7 +14,7 @@ const StudentsSchema = new mongoose.Schema({
     unique: true,
   },
   phone: {
-    type: Number,
+    type: String,
   },
 },
 {
