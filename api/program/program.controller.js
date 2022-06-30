@@ -2,6 +2,7 @@ const {
   createProgram,
   getAllPrograms,
   deleteProgram,
+  updateProgram,
 } = require('./program.services');
 
 async function handlerCreateProgram(req, res) {
@@ -30,8 +31,20 @@ async function handlerDeleteProgram(req, res) {
   res.status(202).json({ message: `Program was deleted` });
 }
 
+async function handlerUpdateProgram(req, res) {
+  const newInfo = req.body;
+  const { id } = req.params;
+
+  const program = await updateProgram(id, newInfo);
+  if(!program){
+    res.status(500).json({ message: `Program can not be update` });
+  }
+  res.status(201).json(program);
+}
+
 module.exports = {
   handlerCreateProgram,
   handlerGetPrograms,
   handlerDeleteProgram,
+  handlerUpdateProgram,
 };

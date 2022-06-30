@@ -22,8 +22,17 @@ async function deleteProgram(id) {
   return program;
 }
 
+async function updateProgram(id, newInfo) {
+  const updateInfo = await ProgramModel.findByIdAndUpdate(id, newInfo, { new: true });
+  if(!updateInfo) {
+    return null
+  }
+  return updateInfo;
+}
+
 module.exports = {
   createProgram,
   getAllPrograms,
   deleteProgram,
+  updateProgram,
 }
