@@ -4,10 +4,10 @@
   "description": "Back-end to make the tsgroup test",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "start": "node index.js",
     "type": "git",
     "url": "git+https://github.com/jlopezsa/university-management-back.git"
   },
