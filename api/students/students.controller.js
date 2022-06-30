@@ -3,6 +3,7 @@ const {
   createStudent,
   deleteStudent,
   updateStudent,
+  getStudentByName,
 } = require('./students.services');
 
 async function handlerCreateStudent(req, res) {
@@ -43,9 +44,20 @@ async function handlerUpdateStudent(req, res) {
   res.status(201).json(student);
 }
 
+async function handlerSearchStudents(req, res) {
+  const filterCondition = req.query;
+  try {
+    const studentFiltered = await getStudentByName(filterCondition);
+    res.status(201).json(studentFiltered);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+}
+
 module.exports = {
   handlerCreateStudent,
   handlerGetStudents,
   handlerDeleteStudent,
   handlerUpdateStudent,
+  handlerSearchStudents,
 };
