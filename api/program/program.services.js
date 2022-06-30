@@ -30,9 +30,19 @@ async function updateProgram(id, newInfo) {
   return updateInfo;
 }
 
+async function getProgramByName(filterCondition) {
+  try {
+    const programFiltered = await ProgramModel.find(filterCondition);
+    return programFiltered;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 module.exports = {
   createProgram,
   getAllPrograms,
   deleteProgram,
   updateProgram,
+  getProgramByName,
 }

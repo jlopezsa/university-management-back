@@ -3,6 +3,7 @@ const {
   getAllPrograms,
   deleteProgram,
   updateProgram,
+  getProgramByName,
 } = require('./program.services');
 
 async function handlerCreateProgram(req, res) {
@@ -42,9 +43,20 @@ async function handlerUpdateProgram(req, res) {
   res.status(201).json(program);
 }
 
+async function handlerSearchProgram(req, res) {
+  const filterCondition = req.query;
+  try {
+    const programFiltered = await getProgramByName(filterCondition);
+    res.status(201).json(programFiltered);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+}
+
 module.exports = {
   handlerCreateProgram,
   handlerGetPrograms,
   handlerDeleteProgram,
   handlerUpdateProgram,
+  handlerSearchProgram
 };
