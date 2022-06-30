@@ -3,6 +3,7 @@ const {
   createStudent,
   deleteStudent,
   updateStudent,
+  getStudentByName,
 } = require('./students.services');
 
 async function handlerCreateStudent(req, res) {
@@ -43,9 +44,21 @@ async function handlerUpdateStudent(req, res) {
   res.status(201).json(student);
 }
 
+async function handlerSearchStudents(req, res) {
+  const filterCondition = req.query;
+  try {
+    console.log('FLAG: ', filterCondition);
+    const studentFiltered = await getStudentByName(filterCondition);
+    console.log('EXITO: ', studentFiltered);
+  } catch (error) {
+    console.log('NO Query Param');
+  }
+}
+
 module.exports = {
   handlerCreateStudent,
   handlerGetStudents,
   handlerDeleteStudent,
   handlerUpdateStudent,
+  handlerSearchStudents,
 };

@@ -30,9 +30,19 @@ async function updateStudent(id, newInfo) {
   return updateInfo;
 }
 
+async function getStudentByName(filterCondition) {
+  try {
+    const userFiltered = await StudentsModel.find(filterCondition);
+    return userFiltered;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 module.exports = {
   createStudent,
   getAllStudents,
   deleteStudent,
   updateStudent,
+  getStudentByName,
 }
