@@ -14,7 +14,16 @@ function getAllPrograms() {
   return response;
 }
 
+async function deleteProgram(id) {
+  const program = await ProgramModel.findByIdAndDelete(id);
+  if (!program) {
+    return null;
+  }
+  return program;
+}
+
 module.exports = {
   createProgram,
   getAllPrograms,
+  deleteProgram,
 }
