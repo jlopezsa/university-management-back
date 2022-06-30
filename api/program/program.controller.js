@@ -1,5 +1,6 @@
 const {
   createProgram,
+  getAllPrograms,
 } = require('./program.services');
 
 async function handlerCreateProgram(req, res) {
@@ -14,6 +15,12 @@ async function handlerCreateProgram(req, res) {
   }
 }
 
+async function handlerGetPrograms(req, res) {
+  const programs = await getAllPrograms();
+  res.status(200).json(programs);
+}
+
 module.exports = {
   handlerCreateProgram,
+  handlerGetPrograms,
 };

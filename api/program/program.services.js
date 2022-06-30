@@ -9,6 +9,12 @@ async function createProgram(newProgram) {
   }
 }
 
+function getAllPrograms() {
+  const response = ProgramModel.find();
+  return response;
+}
+
 module.exports = {
   createProgram,
+  getAllPrograms,
 }
